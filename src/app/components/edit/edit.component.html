@@ -1,0 +1,31 @@
+<div>
+  <br>
+  <mat-card>
+    <section class="mat-typography">
+      <h3>Update Task</h3>
+    </section>
+    <mat-divider>
+      <br>
+      <form [formGroup]="updateForm" class="edit-form">
+        <mat-form-field class="field-full-width">
+          <input matInput placeholder="Task Name" formControlName="taskName" #task>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+          <textarea matInput placeholder="Description" formControlName="Description" #description></textarea>
+        </mat-form-field>
+
+        <mat-form-field class="field-full-width">
+          <mat-select placeholder="Completed" formControlName="Completed" #completed>
+            <mat-option value="True">True</mat-option>
+            <mat-option value="False">False</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-divider></mat-divider>
+        <br><br>
+        <button mat-raised-button color="accent" routerink='/task'>Back</button>
+        <button type="submit" (click)="updateTask(task.value, description.value, completed.value)" [disabled]="updateForm.pristine || updateForm.invalid" mat-raised-button color="primary">Save</button>
+      </form>
+    </mat-divider>
+  </mat-card>
+</div>
